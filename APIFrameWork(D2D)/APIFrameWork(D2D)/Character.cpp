@@ -27,7 +27,7 @@ HRESULT Character::init(void)
 	character_action[WAKEUP] = L"player_wakeup";
 
 	// item_in, item_out, wakeup
-	character_order[NONE] = L"";
+	character_order[NONE_ACTION] = L"";
 	// idle, idle_torch, pickup, actionFX,
 	character_order[NONE_DOWN] = L"_down";
 	character_order[NONE_SIDE] = L"_side";
@@ -44,13 +44,13 @@ HRESULT Character::init(void)
 	character_order[PST_UP] = L"_pst_up";
 
 	_action = WAKEUP;
-	_order = NONE;
+	_order = NONE_ACTION;
 
 	isOpening = true;
 	count = 0;
 
-	characterX = WINSIZEX_NUM / 2;
-	characterY = WINSIZEY_NUM / 2;
+	_position.x = WINSIZEX_NUM / 2;
+	_position.y = WINSIZEY_NUM / 2;
 	frameX = 0;
 
 	return S_OK;
@@ -64,25 +64,25 @@ void Character::update(void)
 {
 	// up
 	if (KEYMANAGER->isStayKeyDown('W')) {
-		characterY -= CHARACTER_SPEED;
+		_position.y -= CHARACTER_SPEED;
 		isWalk = true;
 		_dir = UP;
 	}
 	// down
 	if (KEYMANAGER->isStayKeyDown('S')) {
-		characterY += CHARACTER_SPEED;
+		_position.y += CHARACTER_SPEED;
 		isWalk = true;
 		_dir = DOWN;
 	}
 	//left
 	if (KEYMANAGER->isStayKeyDown('A')) {
-		characterX -= CHARACTER_SPEED;
+		_position.x -= CHARACTER_SPEED;
 		isWalk = true;
 		_dir = LEFT;
 	}
 	//right
 	if (KEYMANAGER->isStayKeyDown('D')) {
-		characterX += CHARACTER_SPEED;
+		_position.x += CHARACTER_SPEED;
 		isWalk = true;
 		_dir = RIGHT;
 	}
@@ -124,5 +124,3 @@ void Character::render(void)
 	tstring tmp = character_action[_action] + character_order[_order];
 	//IMAGEMANAGER->frameRender(tmp, Rt, characterX, characterY, frameX, 0);
 }
-
-
