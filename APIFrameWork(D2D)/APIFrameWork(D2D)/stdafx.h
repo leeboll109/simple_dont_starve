@@ -64,7 +64,7 @@ typedef char tchar;
 #include "imageManager.h"
 #include "iniData.h"
 #include "randomFunction.h"
-
+#include "cameraManager.h"
 
 //==================================================================
 //		## ΩÃ±€≈Ê¿ª √ﬂ∞°«—¥Ÿ ##
@@ -76,6 +76,7 @@ typedef char tchar;
 #define SCENEMANAGER sceneManager::getSingleton()
 #define IMAGEMANAGER imageManager::getSingleton()
 #define INIDATA iniData::getSingleton()
+#define CAMERAMANAGER cameraManager::getSingleton()
 
 
 //==================================================================
@@ -126,6 +127,7 @@ extern ID2D1HwndRenderTarget* Rt;
 extern IWICImagingFactory *imagingFactory;
 extern ID2D1BitmapRenderTarget* CRt;
 extern ID2D1Bitmap* pBitmap;
+extern ID2D1RadialGradientBrush* m_pRadialGradientBrush;
 extern float crtAlpha;
 
 

@@ -6,17 +6,6 @@
 
 class mainGame : public gameNode
 {
-private:
-	int count;
-	int frame;
-
-	int _x, _y;
-	POINT _tmp;
-	POINT _standard;
-
-	tstring _tile[100][100];
-
-	bool _isWalk;
 public:
 	HRESULT init(void);
 	void release(void);
@@ -25,6 +14,4 @@ public:
 
 	mainGame();
 	~mainGame();
-
-	void calulateStandard();
 };

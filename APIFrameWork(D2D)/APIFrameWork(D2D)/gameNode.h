@@ -2,6 +2,14 @@
 #include "image.h"
 #include "ItemInfo.h"
 
+#define TILEX 100
+#define TILEY 100
+#define TILESIZEX 512
+#define TILESIZEY 512
+#define MAPMAX_X 512*100
+#define MAPMAX_Y 512*100
+
+
 class gameNode
 {
 protected:
