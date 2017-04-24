@@ -1,4 +1,5 @@
 #pragma once
+extern ID2D1RadialGradientBrush* m_pRadialGradientBrush;
 //========================================================================
 //		## commonMacroFunction ## (필요한 분분은 직접 만들어서 추가할것!)
 //========================================================================
@@ -221,4 +222,32 @@ inline int Cipher(int number)
 			count++;
 		}
 	}
+}
+
+inline HRESULT setRadialGradientBrush(ID2D1HwndRenderTarget* Rt, POINT center, int radiusX, int radiusY) {
+	ID2D1GradientStopCollection *pGradientStops = NULL;
+	static const D2D1_GRADIENT_STOP gradientStops[] =
+	{
+		{ 1.0f,  D2D1::ColorF(D2D1::ColorF::Black, 0.8f) },
+		//{ 1.0f,  D2D1::ColorF(D2D1::ColorF::Black, 0.5f) },
+		//{ 1.5f,  D2D1::ColorF(D2D1::ColorF::WhiteSmoke, 0.0f) },
+		//{ 0.5f,  D2D1::ColorF(D2D1::ColorF::WhiteSmoke, 0.0f) },
+	};
+
+	Rt->CreateGradientStopCollection(
+		gradientStops,
+		4,
+		&pGradientStops);
+
+	Rt->CreateRadialGradientBrush(
+		D2D1::RadialGradientBrushProperties(
+			D2D1::Point2F(center.x, center.y),
+			D2D1::Point2F(0, 0),
+			radiusX,
+			radiusY),
+		pGradientStops,
+		&m_pRadialGradientBrush);
+	pGradientStops->Release();
+
+	return S_OK;
 }

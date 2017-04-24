@@ -130,9 +130,6 @@
     <ClInclude Include="soundManager.h">
       <Filter>03.Managers</Filter>
     </ClInclude>
-    <ClInclude Include="camera.h">
-      <Filter>00.Don%27tStarve</Filter>
-    </ClInclude>
     <ClInclude Include="loading.h">
       <Filter>04.MNG Header</Filter>
     </ClInclude>
@@ -153,6 +150,9 @@
     </ClInclude>
     <ClInclude Include="menuScene.h">
       <Filter>00.Don%27tStarve\01.scenes\window</Filter>
+    </ClInclude>
+    <ClInclude Include="cameraManager.h">
+      <Filter>03.Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -219,9 +219,6 @@
     <ClCompile Include="soundManager.cpp">
       <Filter>03.Managers</Filter>
     </ClCompile>
-    <ClCompile Include="camera.cpp">
-      <Filter>00.Don%27tStarve</Filter>
-    </ClCompile>
     <ClCompile Include="loading.cpp">
       <Filter>04.MNG Header</Filter>
     </ClCompile>
@@ -242,6 +239,9 @@
     </ClCompile>
     <ClCompile Include="menuScene.cpp">
       <Filter>00.Don%27tStarve\01.scenes\window</Filter>
+    </ClCompile>
+    <ClCompile Include="cameraManager.cpp">
+      <Filter>03.Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

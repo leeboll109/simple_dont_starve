@@ -42,8 +42,7 @@ enum CHARACTER_ORDER {
 	PST_UP
 };
 
-class Character :
-	public gameNode
+class Character : public gameNode
 {
 private:
 	bool isWalk;
@@ -58,7 +57,7 @@ private:
 
 	bool isOpening;
 	int count;
-	int characterX, characterY;
+	POINT _position;				// int characterX, characterY;
 	int frameX;
 
 public:
@@ -70,5 +69,5 @@ public:
 	void update(void);
 	void render(void);
 
-
+	POINT* getPointerPosition() { return &_position; }
 };

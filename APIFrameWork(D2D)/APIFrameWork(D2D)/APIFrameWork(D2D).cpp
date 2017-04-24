@@ -24,6 +24,7 @@ ID2D1SolidColorBrush* Brush;
 IWICImagingFactory *imagingFactory;
 ID2D1BitmapRenderTarget* CRt;
 ID2D1Bitmap* pBitmap;
+ID2D1RadialGradientBrush* m_pRadialGradientBrush;
 float crtAlpha;
 
 //메인게임 클래스 선언

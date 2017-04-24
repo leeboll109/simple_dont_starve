@@ -38,6 +38,7 @@ HRESULT gameNode::init(bool managerInit)
 		TIMEMANAGER->init();
 		SOUNDMANAGER->init();
 		SCENEMANAGER->init();				//씬매니져 셋팅
+		CAMERAMANAGER->init();
 	}
 	return S_OK;
 }
@@ -59,6 +60,8 @@ void gameNode::release(void)
 		//사운드 매니져 해제
 		SOUNDMANAGER->release();
 		SOUNDMANAGER->releaseSingleton();
+		CAMERAMANAGER->release();
+		CAMERAMANAGER->releaseSingleton();
 	}
 }
 
