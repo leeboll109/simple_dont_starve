@@ -166,8 +166,6 @@
     <ClInclude Include="menuScene.h" />
     <ClInclude Include="Minimap.h" />
     <ClInclude Include="Objects.h" />
-    <ClInclude Include="player_idle.h" />
-    <ClInclude Include="player_run.h" />
     <ClInclude Include="randomFunction.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="sceneManager.h" />
@@ -201,8 +199,6 @@
     <ClCompile Include="menuScene.cpp" />
     <ClCompile Include="Minimap.cpp" />
     <ClCompile Include="Objects.cpp" />
-    <ClCompile Include="player_idle.cpp" />
-    <ClCompile Include="player_run.cpp" />
     <ClCompile Include="sceneManager.cpp" />
     <ClCompile Include="soundManager.cpp" />
     <ClCompile Include="stdafx.cpp">
