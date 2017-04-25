@@ -175,5 +175,5 @@ void Clock::dayNumberRender(int day, int x, int y)
 	}
 	if (count == 0) {
 		IMAGEMANAGER->frameRender(L"clockNumber", Rt, x, y, 0, 0);
-	}
+	} 
 }

@@ -48,5 +48,5 @@ public:
 
 	//숫자가 현재 day값에 따라 렌더하기 위한 함수입니다
 	void dayNumberRender(int day, int x, int y);
-};
+}; 
 
