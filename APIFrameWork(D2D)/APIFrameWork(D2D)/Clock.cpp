@@ -18,12 +18,20 @@ HRESULT Clock::init()
 	IMAGEMANAGER->addFrameImage(Rt, L"clockRoundAfternoon", L"image/ui_clockroundafternoon.png", 1260, 94, 14, 1);
 	IMAGEMANAGER->addFrameImage(Rt, L"clockRoundNight", L"image/ui_clockroundnight.png", 1260, 94, 14, 1);
 
-	//º¯¼ö ÃÊ±âÈ­ÀÔ´Ï´Ù
+	IMAGEMANAGER->addImage(Rt, L"clockdaytxt", L"image/ui_worlddatetext.png", 70, 47);
+	IMAGEMANAGER->addFrameImage(Rt, L"clockNumber", L"image/ui_clocknumber.png", 150, 40, 10, 1);
+
+
+	//ë³€ìˆ˜ ì´ˆê¸°í™”ìž…ë‹ˆë‹¤
 	_time = 0;
 	_timetmp = 0;
 	_state = EVENING;
 
 	_timeFrameX = _countFrame = 0;
+	_state = AFTERNOON;
+
+	_timeFrameX = _countFrame = 0;
+	_day = 1;	//1ì¼ë¶€í„° ì‹œìž‘
 
 	return S_OK;
 }
@@ -34,43 +42,43 @@ void Clock::release()
 
 void Clock::update()
 {
-	//1ÃÊ¸¶´Ù timetmp¿¡ getWorldTime()À» ÀúÀåÇÕ´Ï´Ù
+	//1ì´ˆë§ˆë‹¤ timetmpì— getWorldTime()ì„ ì €ìž¥í•©ë‹ˆë‹¤
 	if ((int)TIMEMANAGER->getWorldTime() % 1 == 0 && (int)TIMEMANAGER->getWorldTime() != _timetmp) {
 		_timetmp = (int)TIMEMANAGER->getWorldTime();
 		_time++;
 
-		//360ÃÊÀÏ¶§ Å¸ÀÓ ÃÊ±âÈ­ÇÕ´Ï´Ù
+		//360ì´ˆì¼ë•Œ íƒ€ìž„ ì´ˆê¸°í™”í•©ë‹ˆë‹¤
 		if (_time == 360) _time = 0;
 	}
 
-	//state°ªÀ» ¾÷µ¥ÀÌÆ® ÇØÁÝ´Ï´Ù
+	//stateê°’ì„ ì—…ë°ì´íŠ¸ í•´ì¤ë‹ˆë‹¤
 	if (_time >= 0 && _time < 180) _state = AFTERNOON;
 	if (_time >= 180 && _time < 315) _state = EVENING;
 	if (_time >= 315 && _time < 360) _state = NIGHT;
 
-	//ÇÁ·¹ÀÓ ·»´õ¸¦ µ¹¸³´Ï´Ù
+	//í”„ë ˆìž„ ë Œë”ë¥¼ ëŒë¦½ë‹ˆë‹¤
 	_timeFrameX++;
 	if (_timeFrameX > 13)
 	{
 		_timeFrameX = 0;
 	}
 
-	//³·ÀÏ °æ¿ì
+	//ë‚®ì¼ ê²½ìš°
 	if (_state == AFTERNOON) {
 	}
 
-	//Àú³áÀÏ °æ¿ì
+	//ì €ë…ì¼ ê²½ìš°
 	else if (_state == EVENING) {
 	}
 
-	//¹ãÀÏ °æ¿ì
+	//ë°¤ì¼ ê²½ìš°
 	else if (_state == NIGHT) {
 	}
 }
 
 void Clock::render()
 {
-	//»óÅÂ¿¡ µû¶ó¼­ ·»´õÇÕ´Ï´Ù
+	//ìƒíƒœì— ë”°ë¼ì„œ ë Œë”í•©ë‹ˆë‹¤
 	if (_state == AFTERNOON) IMAGEMANAGER->frameCenterRender(L"clockRoundAfternoon", Rt, 1219, 46, _timeFrameX, 0);
 	if (_state == NIGHT) IMAGEMANAGER->frameCenterRender(L"clockRoundNight", Rt, 1218.5f, 46, _timeFrameX, 0);
 
@@ -80,5 +88,92 @@ void Clock::render()
 	IMAGEMANAGER->render(L"clockNeedle", Rt, 1209.5f, 3.5f);
 	Rt->SetTransform(D2D1::Matrix3x2F::Rotation(0, D2D1::Point2F(1218.5f, 46.5f)));
 	
-	//ÇÊÅÍÃß°¡
+	//í•„í„°ì¶”ê°€
+}
+	gameTimeConv(1, _timetmp, _time, _day);
+	whatState(_state, _time);
+	clockFrameFunc(_timeFrameX);
+	nowStateFunc(_state);
+
+}
+
+void Clock::render()
+{
+	//ìƒíƒœì— ë”°ë¼ì„œ ë Œë”í•©ë‹ˆë‹¤
+	if (_state == AFTERNOON) IMAGEMANAGER->frameCenterRender(L"clockRoundAfternoon", Rt, 1219, 46, _timeFrameX, 0);
+	if (_state == NIGHT) IMAGEMANAGER->frameCenterRender(L"clockRoundNight", Rt, 1218.5f, 46, _timeFrameX, 0);
+
+	IMAGEMANAGER->render(L"clock", Rt, 1183, 11);
+
+	Rt->SetTransform(D2D1::Matrix3x2F::Rotation(_time, D2D1::Point2F(1218.5f, 46.5f)));
+	IMAGEMANAGER->render(L"clockNeedle", Rt, 1209.5f, 3.5f);
+	Rt->SetTransform(D2D1::Matrix3x2F::Rotation(0, D2D1::Point2F(1218.5f, 46.5f)));
+
+	IMAGEMANAGER->render(L"clockdaytxt", Rt, 1183, 26);
+	dayNumberRender(_day, 1213, 40);
+}
+
+void Clock::gameTimeConv(int interval, int& timetmp, int& time, int& day)
+{
+	//1ì´ˆë§ˆë‹¤ timetmpì— getWorldTime()ì„ ì €ìž¥í•©ë‹ˆë‹¤
+	if ((int)TIMEMANAGER->getWorldTime() % interval == 0 && (int)TIMEMANAGER->getWorldTime() != timetmp) {
+		timetmp = (int)TIMEMANAGER->getWorldTime();
+		time++;
+
+		//360ì´ˆì¼ë•Œ íƒ€ìž„ ì´ˆê¸°í™”í•©ë‹ˆë‹¤
+		if (time == 360) {
+			time = 0;
+			day++;
+		}
+	}
+}
+
+void Clock::whatState(ECLOCKSTATE& state, int time)
+{
+	//stateê°’ì„ ì—…ë°ì´íŠ¸ í•´ì¤ë‹ˆë‹¤
+	if (time >= 0 && time < 180) state = AFTERNOON;
+	if (time >= 180 && time < 315) state = EVENING;
+	if (time >= 315 && time < 360) state = NIGHT;
+}
+
+void Clock::clockFrameFunc(int& timeFrameX)
+{
+	//í”„ë ˆìž„ ë Œë”ë¥¼ ëŒë¦½ë‹ˆë‹¤
+	timeFrameX++;
+	if (timeFrameX > 13)
+	{
+		timeFrameX = 0;
+	}
+}
+
+void Clock::nowStateFunc(ECLOCKSTATE state)
+{
+	//ë‚®ì¼ ê²½ìš°
+	if (state == AFTERNOON) {
+
+	}
+
+	//ì €ë…ì¼ ê²½ìš°
+	else if (state == EVENING) {
+
+	}
+
+	//ë°¤ì¼ ê²½ìš°
+	else if (state == NIGHT) {
+
+	}
+}
+
+void Clock::dayNumberRender(int day, int x, int y)
+{
+	int tmp = day;
+	int count = 0;
+	while (tmp != 0) {
+		count++;
+		IMAGEMANAGER->frameRender(L"clockNumber", Rt, x - 15 * count, y, tmp % 10, 0);
+		tmp /= 10;
+	}
+	if (count == 0) {
+		IMAGEMANAGER->frameRender(L"clockNumber", Rt, x, y, 0, 0);
+	}
 }
