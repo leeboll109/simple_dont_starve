@@ -6,6 +6,7 @@
 class gameScene : public gameNode
 {
 private:
+	Character* _character;
 	UImanager* _uimanager;
 	Inventory* _inventory;
 
