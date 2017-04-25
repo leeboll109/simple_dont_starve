@@ -25,8 +25,12 @@ HRESULT gameNode::init(bool managerInit)
 		&Rt);
 
 	Rt->CreateCompatibleRenderTarget(D2D1::SizeF(WINSIZEX_NUM, WINSIZEY_NUM), D2D1::SizeU(WINSIZEX_NUM, WINSIZEY_NUM), &CRt);
-
+	
 	Rt->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::White), &Brush);
+	Rt->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::WhiteSmoke, 0.5f), &WhiteSmokeBrush);
+	Rt->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Black, 0.5f), &BlackBrush);
+
+	Rt->SetAntialiasMode(D2D1_ANTIALIAS_MODE_ALIASED);
 
 	DWInit(L"나눔고딕", 15.0f, &WriteFactory, &TextFormat);
 
@@ -60,6 +64,7 @@ void gameNode::release(void)
 		//사운드 매니져 해제
 		SOUNDMANAGER->release();
 		SOUNDMANAGER->releaseSingleton();
+		//카메라 매니져 해제
 		CAMERAMANAGER->release();
 		CAMERAMANAGER->releaseSingleton();
 	}
@@ -71,10 +76,6 @@ void gameNode::update(void)
 }
 
 void gameNode::render(void)
-{
-
-}
-void gameNode::battleRender()
 {
 
 }

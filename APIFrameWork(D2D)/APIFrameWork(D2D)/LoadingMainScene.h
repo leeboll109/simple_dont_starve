@@ -1,7 +1,12 @@
 #pragma once
 #include "gameNode.h"
+#include "loading.h"
+
 class LoadingMainScene : public gameNode
 {
+private:
+	loading* _loading;
+
 public:
 	LoadingMainScene();
 	~LoadingMainScene();

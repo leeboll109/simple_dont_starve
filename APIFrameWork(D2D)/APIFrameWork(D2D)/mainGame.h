@@ -1,17 +1,15 @@
 #pragma once
 #include "gameNode.h"
 #include "gameScene.h"
-#include "LoadingMapScene.h"
-
-
+#include "LoadingMainScene.h"
 class mainGame : public gameNode
 {
 public:
+	mainGame();
+	~mainGame();
+
 	HRESULT init(void);
 	void release(void);
 	void update(void);
 	void render(void);
-
-	mainGame();
-	~mainGame();
 };

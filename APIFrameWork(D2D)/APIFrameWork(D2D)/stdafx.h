@@ -78,7 +78,6 @@ typedef char tchar;
 #define INIDATA iniData::getSingleton()
 #define CAMERAMANAGER cameraManager::getSingleton()
 
-
 //==================================================================
 //		## 네임스페이스 추가한다 ##
 //==================================================================
@@ -128,8 +127,9 @@ extern IWICImagingFactory *imagingFactory;
 extern ID2D1BitmapRenderTarget* CRt;
 extern ID2D1Bitmap* pBitmap;
 extern ID2D1RadialGradientBrush* m_pRadialGradientBrush;
+extern ID2D1SolidColorBrush* WhiteSmokeBrush;
+extern ID2D1SolidColorBrush* BlackBrush;
 extern float crtAlpha;
-
 
 //==================================================================
 //		## 다이렉트용 ##

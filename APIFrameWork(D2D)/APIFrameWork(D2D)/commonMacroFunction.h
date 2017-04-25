@@ -68,12 +68,13 @@ inline D2D1_ELLIPSE EllipseFMakeCenter(float x, float y, float width, float heig
 // 마우스 입력 렉트안에 들어있는지 체크
 inline bool IsInRect(POINT pt, RECT rc)
 {
-	if (pt.x > rc.left && pt.x < rc.right && pt.y > rc.top  && pt.y < rc.bottom)
+	if (pt.x >= rc.left && pt.x <= rc.right && pt.y >= rc.top  && pt.y <= rc.bottom)
 	{
 		return true;
 	}
 	return false;
 }
+
 
 inline HRESULT DWInit(LPCWSTR fontname, float size,
 	IDWriteFactory **factory, IDWriteTextFormat **format)
@@ -224,24 +225,24 @@ inline int Cipher(int number)
 	}
 }
 
-inline HRESULT setRadialGradientBrush(ID2D1HwndRenderTarget* Rt, POINT center, int radiusX, int radiusY) {
+inline HRESULT setRadialGradientBrush(ID2D1HwndRenderTarget* Rt, POINT center, int radiusX, int radiusY, float alpha) {
 	ID2D1GradientStopCollection *pGradientStops = NULL;
 	static const D2D1_GRADIENT_STOP gradientStops[] =
 	{
-		{ 1.0f,  D2D1::ColorF(D2D1::ColorF::Black, 0.8f) },
+		{ 1.0f,  D2D1::ColorF(D2D1::ColorF::Black, alpha) },
 		//{ 1.0f,  D2D1::ColorF(D2D1::ColorF::Black, 0.5f) },
-		//{ 1.5f,  D2D1::ColorF(D2D1::ColorF::WhiteSmoke, 0.0f) },
+		//{ 1.0f,  D2D1::ColorF(D2D1::ColorF::LightYellow, 0.2f) },
 		//{ 0.5f,  D2D1::ColorF(D2D1::ColorF::WhiteSmoke, 0.0f) },
 	};
 
 	Rt->CreateGradientStopCollection(
 		gradientStops,
-		4,
+		2,
 		&pGradientStops);
 
 	Rt->CreateRadialGradientBrush(
 		D2D1::RadialGradientBrushProperties(
-			D2D1::Point2F(center.x, center.y),
+			D2D1::Point2F(center.x , center.y),
 			D2D1::Point2F(0, 0),
 			radiusX,
 			radiusY),

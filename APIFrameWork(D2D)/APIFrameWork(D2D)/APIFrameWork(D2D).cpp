@@ -21,10 +21,13 @@ IDWriteTextFormat* TextFormat;
 IDWriteTextLayout* textLayout;
 ID2D1HwndRenderTarget* Rt;
 ID2D1SolidColorBrush* Brush;
+ID2D1SolidColorBrush* WhiteSmokeBrush;
+ID2D1SolidColorBrush* BlackBrush;
 IWICImagingFactory *imagingFactory;
 ID2D1BitmapRenderTarget* CRt;
 ID2D1Bitmap* pBitmap;
 ID2D1RadialGradientBrush* m_pRadialGradientBrush;
+
 float crtAlpha;
 
 //메인게임 클래스 선언
@@ -67,7 +70,7 @@ int WINAPI WinMain(
 	wcex.hInstance = HINST_THISCOMPONENT;
 	wcex.hbrBackground = NULL;
 	wcex.lpszMenuName = NULL;
-	wcex.hCursor = LoadCursor(NULL, IDI_APPLICATION);
+	wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wcex.lpszClassName = L"Don't Starve";
 
 	RegisterClassEx(&wcex);
@@ -112,14 +115,14 @@ int WINAPI WinMain(
 
 	RECT clrc;
 	GetClientRect(hWnd, &clrc);
-
+	
 	RECT rc;
 	rc.left = 0;
 	rc.top = 0;
-	rc.right = WINSIZEX_NUM +(WINSIZEX_NUM - (clrc.right - clrc.left));
-	rc.bottom = WINSIZEY_NUM +(WINSIZEY_NUM - (clrc.bottom - clrc.top));
+	rc.right = WINSIZEX_NUM + (WINSIZEX_NUM - (clrc.right - clrc.left));
+	rc.bottom = WINSIZEY_NUM + (WINSIZEY_NUM - (clrc.bottom - clrc.top));
 	AdjustWindowRect(&rc, WINSTYLE, false);
-
+	
 	SetWindowPos(hWnd, NULL, WINSTARTX, WINSTARTY, (rc.right - rc.left), (rc.bottom - rc.top), FALSE);
 
 	ShowWindow(hWnd, SW_SHOWNORMAL);
@@ -180,4 +183,5 @@ void clean()
 	Factory->Release();
 	CRt->Release();
 	imagingFactory->Release();
+	m_pRadialGradientBrush->Release();
 }
