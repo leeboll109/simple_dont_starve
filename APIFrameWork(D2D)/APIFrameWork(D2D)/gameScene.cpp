@@ -18,7 +18,6 @@ HRESULT gameScene::init(void)
 	IMAGEMANAGER->addImage(Rt, L"시침", L"image/clockpin.png", 20, 100);
 	IMAGEMANAGER->addImage(Rt, L"노랑", L"image/yellow.png", MAPMAX_X, MAPMAX_Y);
 	//IMAGEMANAGER->addFrameImage(Rt, L"캐릭터", L"image/player/idle/player_idle_down.png", 630, 100, 10, 1);
-	SOUNDMANAGER->addSound("배경음", "sounds/Dawn_150bpm_3.4time.mp3", true, true);
 	SOUNDMANAGER->play("배경음");
 
 	for (int i = 0; i < TILEX; i++) {
