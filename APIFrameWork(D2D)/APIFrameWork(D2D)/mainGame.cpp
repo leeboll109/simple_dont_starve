@@ -13,12 +13,10 @@ mainGame::~mainGame()
 HRESULT mainGame::init(void)
 {
 	gameNode::init(true);
-
 	SCENEMANAGER->addScene("gameScene", new gameScene);
-	SCENEMANAGER->addScene("loadingGame", new LoadingMapScene);
+	SCENEMANAGER->addScene("loadingGame", new LoadingMainScene);
 
 	SCENEMANAGER->changeScene("loadingGame");
-
 	return S_OK;
 }
 
@@ -44,7 +42,9 @@ void mainGame::render(void)
 	D2D1_RECT_F rect = D2D1::RectF(0, 0, WINSIZEX_NUM, WINSIZEY_NUM);
 	//==================================================================
 	SCENEMANAGER->render();
-	TIMEMANAGER->render(Rt);
+	TCHAR _point[20];
+	wsprintf(_point, L"%d,%d", (int)_ptMouse.x, (int)_ptMouse.y);
+	D2TextOut(Rt, _point, TextFormat, D2D1::RectF(0, 15, 500, 15), Brush);
 	//==================================================================
 	Rt->EndDraw();
 

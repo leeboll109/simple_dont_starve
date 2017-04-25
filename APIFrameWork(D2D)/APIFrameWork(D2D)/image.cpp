@@ -85,6 +85,7 @@ void image::render(ID2D1RenderTarget* RenderTarget)
 void image::render(ID2D1RenderTarget* RenderTarget, float destX, float destY)
 {
 	RenderTarget->DrawBitmap(_bitmap, D2D1::RectF(destX, destY, destX + _imageInfo->width, destY + _imageInfo->height), _alpha, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR);
+	//RenderTarget->FillOpacityMask(_bitmap, WhiteSmokeBrush, D2D1_OPACITY_MASK_CONTENT_GRAPHICS, &D2D1::RectF(destX, destY, destX + _imageInfo->width, destY + _imageInfo->height));
 }
 void image::centerRender(ID2D1RenderTarget* RenderTarget, float destX, float destY)
 {
@@ -205,6 +206,6 @@ void image::release()
 	{
 		SAFE_DELETE(_imageInfo);
 		SAFE_DELETE(_fileName);
-		_bitmap->Release();
+		//_bitmap->Release();
 	}
 }

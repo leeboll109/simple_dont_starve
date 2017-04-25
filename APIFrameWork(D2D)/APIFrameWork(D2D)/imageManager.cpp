@@ -157,7 +157,7 @@ BOOL imageManager::deleteAll(void)
 	{
 		if (iter->second != NULL)
 		{
-			//iter->second->release();
+			iter->second->release();
 			SAFE_DELETE(iter->second);
 			iter = _mImageList.erase(iter);
 		}

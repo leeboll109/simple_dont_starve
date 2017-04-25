@@ -5,8 +5,8 @@
 class Inventory : public gameNode
 {
 private:
-	vector<Objects> _vObjects;
-	vector<Objects>::iterator _viObjects;
+	vector<OBJECT_IN_INVENTORY> _vObjects;
+	vector<OBJECT_IN_INVENTORY>::iterator _viObjects;
 
 	image* _invenItemSlot;
 	image* _invenHandSlot;
@@ -22,8 +22,8 @@ public:
 	void update();
 	void render();
 
-	inline void saveObject(Objects _obj) { _vObjects.push_back(_obj); }
-	inline Objects loadObject(int integer) { return _vObjects[integer]; }
+	inline void saveObject(OBJECT_IN_INVENTORY _obj) { _vObjects.push_back(_obj); }
+	inline OBJECT_IN_INVENTORY loadObject(int integer) { return _vObjects[integer]; }
 
 	void deleteObjects(int integer);
 };

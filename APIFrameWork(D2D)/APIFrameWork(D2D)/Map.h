@@ -2,13 +2,14 @@
 #include "gameNode.h"
 #include "Objects.h"
 #include "Tiles.h"
+#include "Character.h"
+#include "Minimap.h"
 
 class Map : public gameNode
 {
 private:
-	// Tiles tile[tileMax];
-	// vector<Objects> _vObject;
-	// vector<Objects>::iterator _viObject;
+	Tiles _tile[TILEX][TILEY];
+	map<POINT, vector<OBJECT_ENVIRONMENT>> _mObjEnvi;
 
 public:
 	Map();

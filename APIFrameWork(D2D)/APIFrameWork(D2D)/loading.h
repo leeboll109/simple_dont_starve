@@ -2,7 +2,7 @@
 #include "gameNode.h"
 
 enum LOAD_KIND {
-	LOAD_KIND_IMAGE_0,		//
+	LOAD_KIND_IMAGE_0,
 	LOAD_KIND_IMAGE_1,
 	LOAD_KIND_FRAMEIMAGE_0,
 	LOAD_KIND_SOUND,
@@ -31,7 +31,7 @@ public:
 	HRESULT initForImage(tstring keyName, const TCHAR* fileName, int x, int y, int width, int height);
 	// 키값으로 프레임 이미지 파일로 초기화
 	HRESULT initForFrameImage(tstring keyName, const TCHAR* fileName, int width, int height, int frameX, int frameY);
-	
+
 
 	// 로딩 아이템 종류 가져오기
 	LOAD_KIND getLoadingKind() { return _kind; }
@@ -59,17 +59,17 @@ public:
 	void update();
 	void render();
 
+
+
 	// 키값으로 이미지 파일로 초기화
 	void loadImage(tstring keyName, const TCHAR* fileName, int width, int height);
 	void loadImage(tstring keyName, const TCHAR* fileName, int x, int y, int width, int height);
 	// 키값으로 프레임 이미지 파일로 초기화
 	void loadFrameImage(tstring keyName, const TCHAR* fileName, int width, int height, int frameX, int frameY);
-	
+
 	// 로딩 완료 (완료 후 씬 변경)
 	BOOL loadingDone();
 
 	// 로드아이템 벡터 가져오기
 	arrLoadItem getLoadItem() { return _vLoadItem; }
 };
-
-

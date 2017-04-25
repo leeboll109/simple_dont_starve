@@ -36,4 +36,3 @@ public:
 	//정수값 로드하기(파일이름,섹션,키)
 	int loadDataInteger(tchar* fileName, tchar* section, tchar* key);
 };
-
