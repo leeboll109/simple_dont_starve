@@ -15,17 +15,18 @@ HRESULT crafting::init(void)
 {
 	IMAGEMANAGER->addImage(Rt, L"craftingMenu", L"image/ui_1.png", 43, 462);
 
-	_craftingKind[0] = IMAGEMANAGER->addImage(Rt, L"craftingKind_1", L"image/ui_1_1.png", 29, 38);
-	_craftingKind[1] = IMAGEMANAGER->addImage(Rt, L"craftingKind_2", L"image/ui_1_2.png", 29, 38);
-	_craftingKind[2] = IMAGEMANAGER->addImage(Rt, L"craftingKind_3", L"image/ui_1_3.png", 29, 38);
-	_craftingKind[3] = IMAGEMANAGER->addImage(Rt, L"craftingKind_4", L"image/ui_1_4.png", 29, 38);
-	_craftingKind[4] = IMAGEMANAGER->addImage(Rt, L"craftingKind_5", L"image/ui_1_5.png", 29, 38);
-	_craftingKind[5] = IMAGEMANAGER->addImage(Rt, L"craftingKind_6", L"image/ui_1_6.png", 29, 38);
-	_craftingKind[6] = IMAGEMANAGER->addImage(Rt, L"craftingKind_7", L"image/ui_1_7.png", 29, 38);
-	_craftingKind[7] = IMAGEMANAGER->addImage(Rt, L"craftingKind_8", L"image/ui_1_8.png", 29, 38);
-	_craftingKind[8] = IMAGEMANAGER->addImage(Rt, L"craftingKind_9", L"image/ui_1_9.png", 29, 38);
-	_craftingKind[9] = IMAGEMANAGER->addImage(Rt, L"craftingKind_10", L"image/ui_1_10.png", 29, 38);
+	_craftingKind[0] = IMAGEMANAGER->findImage(L"craftingKind_1");
+	_craftingKind[1] = IMAGEMANAGER->findImage(L"craftingKind_2");
+	_craftingKind[2] = IMAGEMANAGER->findImage(L"craftingKind_3");
+	_craftingKind[3] = IMAGEMANAGER->findImage(L"craftingKind_4");
+	_craftingKind[4] = IMAGEMANAGER->findImage(L"craftingKind_5");
+	_craftingKind[5] = IMAGEMANAGER->findImage(L"craftingKind_6");
+	_craftingKind[6] = IMAGEMANAGER->findImage(L"craftingKind_7");
+	_craftingKind[7] = IMAGEMANAGER->findImage(L"craftingKind_8");
+	_craftingKind[8] = IMAGEMANAGER->findImage(L"craftingKind_9");
+	_craftingKind[9] = IMAGEMANAGER->findImage(L"craftingKind_10");
 
+	
 	return S_OK;
 }
 

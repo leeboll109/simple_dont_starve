@@ -10,6 +10,7 @@ private:
 	ECRAFTMENU _isClick;
 
 	image* _craftingKind[10];
+	RECT _itemBox[10];
 
 public:
 	crafting();

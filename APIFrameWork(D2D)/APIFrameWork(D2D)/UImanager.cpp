@@ -25,11 +25,6 @@ HRESULT UImanager::init(void)
 	_hp = STATMAX;
 	_mental = STATMAX;
 
-	//ÀÌ¹ÌÁö init
-	IMAGEMANAGER->addFrameImage(Rt, L"health", L"image/ui_health.png", 2400, 50, 50, 1);
-	IMAGEMANAGER->addFrameImage(Rt, L"hunger", L"image/ui_hunger.png", 2400, 50, 50, 1);
-	IMAGEMANAGER->addFrameImage(Rt, L"mental", L"image/ui_mental.png", 2400, 50, 50, 1);
-
 	return S_OK;
 }
 

@@ -102,8 +102,8 @@ int WINAPI WinMain(
 		WS_OVERLAPPEDWINDOW,
 		WINSTARTX,
 		WINSTARTY,
-		WINSIZEX_NUM,
-		WINSIZEY_NUM,
+		WINSIZEX,
+		WINSIZEY,
 		NULL,
 		NULL,
 		HINST_THISCOMPONENT,
@@ -116,8 +116,8 @@ int WINAPI WinMain(
 	RECT rc;
 	rc.left = 0;
 	rc.top = 0;
-	rc.right = WINSIZEX_NUM + (WINSIZEX_NUM - (clrc.right - clrc.left));
-	rc.bottom = WINSIZEY_NUM + (WINSIZEY_NUM - (clrc.bottom - clrc.top));
+	rc.right = WINSIZEX_NUM +(WINSIZEX_NUM - (clrc.right - clrc.left));
+	rc.bottom = WINSIZEY_NUM +(WINSIZEY_NUM - (clrc.bottom - clrc.top));
 	AdjustWindowRect(&rc, WINSTYLE, false);
 
 	SetWindowPos(hWnd, NULL, WINSTARTX, WINSTARTY, (rc.right - rc.left), (rc.bottom - rc.top), FALSE);
