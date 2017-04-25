@@ -29,33 +29,38 @@ enum CHARACTER_ACTION {
 enum CHARACTER_ORDER {
 	NONE_ACTION,
 	NONE_DOWN,
-	NONE_SIDE,
+	NONE_RIGHT,
+	NONE_LEFT,
 	NONE_UP,
 	PRE_DOWN,
-	PRE_SIDE,
+	PRE_RIGHT,
+	PRE_LEFT,
 	PRE_UP,
 	LOOP_DOWN,
-	LOOP_SIDE,
+	LOOP_RIGHT,
+	LOOP_LEFT,
 	LOOP_UP,
 	PST_DOWN,
-	PST_SIDE,
+	PST_RIGHT,
+	PST_LEFT,
 	PST_UP
 };
 
 class Character : public gameNode
 {
 private:
-	bool isWalk;
 	CHARACTER_DIR _dir;
 	tstring character_action[16];
-	tstring character_order[13];
+	tstring character_order[17];
 
 	CHARACTER_ORDER _order;
 	CHARACTER_ACTION _action;
 
 	RECT HUD[3];
 
+	bool isWalk;
 	bool isOpening;
+	bool isWalkComp;
 	int count;
 	POINT _position;				// int characterX, characterY;
 	int frameX;

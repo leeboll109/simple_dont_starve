@@ -35,9 +35,6 @@
     <Filter Include="00.Don%27tStarve\04.userInfo">
       <UniqueIdentifier>{06537210-78a6-4f47-8f6e-0fab13e20848}</UniqueIdentifier>
     </Filter>
-    <Filter Include="00.Don%27tStarve\04.userInfo\characterAction">
-      <UniqueIdentifier>{63c6e82e-e3c7-4024-b6c4-55328d0755ae}</UniqueIdentifier>
-    </Filter>
     <Filter Include="00.Don%27tStarve\01.scenes\loading">
       <UniqueIdentifier>{f5fe61a6-d196-4433-83c7-3dccd73404af}</UniqueIdentifier>
     </Filter>
@@ -133,12 +130,6 @@
     <ClInclude Include="loading.h">
       <Filter>04.MNG Header</Filter>
     </ClInclude>
-    <ClInclude Include="player_idle.h">
-      <Filter>00.Don%27tStarve\04.userInfo\characterAction</Filter>
-    </ClInclude>
-    <ClInclude Include="player_run.h">
-      <Filter>00.Don%27tStarve\04.userInfo\characterAction</Filter>
-    </ClInclude>
     <ClInclude Include="LoadingMainScene.h">
       <Filter>00.Don%27tStarve\01.scenes\loading</Filter>
     </ClInclude>
@@ -221,12 +212,6 @@
     </ClCompile>
     <ClCompile Include="loading.cpp">
       <Filter>04.MNG Header</Filter>
-    </ClCompile>
-    <ClCompile Include="player_idle.cpp">
-      <Filter>00.Don%27tStarve\04.userInfo\characterAction</Filter>
-    </ClCompile>
-    <ClCompile Include="player_run.cpp">
-      <Filter>00.Don%27tStarve\04.userInfo\characterAction</Filter>
     </ClCompile>
     <ClCompile Include="LoadingMainScene.cpp">
       <Filter>00.Don%27tStarve\01.scenes\loading</Filter>

@@ -93,8 +93,8 @@ using namespace MY_UTIL;
 #define WINSTARTY 90
 #define WINSIZEX_NUM 1280.f
 #define WINSIZEY_NUM 720.f
-#define WINSIZEX	static_cast<UINT>(ceil(WINSIZEX_NUM * dpiX / 96.f))
-#define WINSIZEY	static_cast<UINT>(ceil(WINSIZEY_NUM * dpiY / 96.f))
+#define WINSIZEX	static_cast<UINT>(ceil(WINSIZEX_NUM * dpiX / 94.9f))
+#define WINSIZEY	static_cast<UINT>(ceil(WINSIZEY_NUM * dpiY / 91.3f))
 #define WINSTYLE WS_CAPTION | WS_SYSMENU
 #define SPEED 8.0f
 #define LADDER_SPEED SPEED * 48 / 64
