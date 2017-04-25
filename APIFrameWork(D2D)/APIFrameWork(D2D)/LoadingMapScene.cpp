@@ -107,8 +107,4 @@ void LoadingMapScene::totalLoading()
 	//IMAGEMANAGER->addFrameImage(Rt, L"player_idle_down", L"image/player/idle/player_idle_down", 630, 100, 10, 1);
 	//IMAGEMANAGER->addFrameImage(Rt, L"player_idle_down", L"image/player/idle/player_idle_down", 630, 100, 10, 1);
 	//IMAGEMANAGER->addFrameImage(Rt, L"player_idle_down", L"image/player/idle/player_idle_down", 630, 100, 10, 1);
-
-
-	// 사운드 추가
-	SOUNDMANAGER->addSound("배경음", "sounds/Dawn_150bpm_3.4time.mp3", true, true);
 }
