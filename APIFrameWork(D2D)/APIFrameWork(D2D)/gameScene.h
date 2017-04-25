@@ -1,8 +1,10 @@
 #pragma once
 #include "gameNode.h"
-#include "Character.h"
 #include "UImanager.h"
 #include "inventory.h"
+#include "Objects.h"
+#include "Character.h"
+
 class gameScene : public gameNode
 {
 private:
@@ -10,16 +12,10 @@ private:
 	UImanager* _uimanager;
 	Inventory* _inventory;
 
-	int count;
-	int frame;
-
-	POINT _pt;
+	tstring _tile[TILEX][TILEY];
 	POINT _tmp;
 
-	tstring _tile[TILEX][TILEY];
-
-	int  _time;
-	bool _isWalk;
+	OBJECT_ENVIRONMENT* _obj;
 
 public:
 	gameScene();

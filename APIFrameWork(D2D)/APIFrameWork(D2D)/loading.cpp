@@ -51,7 +51,7 @@ void loading::loadImage(tstring keyName, const TCHAR * fileName, int width, int 
 void loading::loadImage(tstring keyName, const TCHAR * fileName, int x, int y, int width, int height)
 {
 	loadItem* item = new loadItem;
-	item->initForImage(keyName, fileName, x,y,width, height);
+	item->initForImage(keyName, fileName, x, y, width, height);
 
 	_vLoadItem.push_back(item);
 }
@@ -72,7 +72,7 @@ BOOL loading::loadingDone()
 	loadItem* item = _vLoadItem[_currentGauge];
 
 	tagImageResource img = item->getImageResource();
-	
+
 	switch (item->getLoadingKind())
 	{
 	case LOAD_KIND_IMAGE_0:

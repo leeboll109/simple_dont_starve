@@ -29,17 +29,23 @@
     <Filter Include="00.Don%27tStarve\02.map">
       <UniqueIdentifier>{42c3d0bb-d67c-41d8-9f4d-3ca29222d4f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="00.Don%27tStarve\03.object">
+    <Filter Include="00.Don%27tStarve\02.map\object">
       <UniqueIdentifier>{24d91451-7c3f-4f91-bd21-d5a661f036da}</UniqueIdentifier>
     </Filter>
-    <Filter Include="00.Don%27tStarve\04.userInfo">
-      <UniqueIdentifier>{06537210-78a6-4f47-8f6e-0fab13e20848}</UniqueIdentifier>
-    </Filter>
     <Filter Include="00.Don%27tStarve\01.scenes\loading">
-      <UniqueIdentifier>{f5fe61a6-d196-4433-83c7-3dccd73404af}</UniqueIdentifier>
+      <UniqueIdentifier>{8232b14f-b22c-4503-87f3-de6d21ce3145}</UniqueIdentifier>
     </Filter>
     <Filter Include="00.Don%27tStarve\01.scenes\window">
-      <UniqueIdentifier>{ebd5f2f7-fed5-4908-b5f6-32c543087a5f}</UniqueIdentifier>
+      <UniqueIdentifier>{65767b0b-5e91-4372-92dc-fde568df2108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Don%27tStarve\03.userInfo">
+      <UniqueIdentifier>{06537210-78a6-4f47-8f6e-0fab13e20848}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Don%27tStarve\03.userInfo\characterAction">
+      <UniqueIdentifier>{bfb85be8-b15e-4dc0-8c12-976a1a993c74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Don%27tStarve\03.userInfo\UI">
+      <UniqueIdentifier>{95d5c45f-55ff-46fb-be9b-a159512fde39}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -107,22 +113,13 @@
       <Filter>00.Don%27tStarve\02.map</Filter>
     </ClInclude>
     <ClInclude Include="Character.h">
-      <Filter>00.Don%27tStarve\04.userInfo</Filter>
+      <Filter>00.Don%27tStarve\03.userInfo</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
-      <Filter>00.Don%27tStarve\04.userInfo</Filter>
-    </ClInclude>
-    <ClInclude Include="UImanager.h">
-      <Filter>00.Don%27tStarve\04.userInfo</Filter>
-    </ClInclude>
-    <ClInclude Include="ItemInfo.h">
-      <Filter>00.Don%27tStarve\03.object</Filter>
+      <Filter>00.Don%27tStarve\03.userInfo</Filter>
     </ClInclude>
     <ClInclude Include="Objects.h">
-      <Filter>00.Don%27tStarve\03.object</Filter>
-    </ClInclude>
-    <ClInclude Include="crafting.h">
-      <Filter>00.Don%27tStarve\04.userInfo</Filter>
+      <Filter>00.Don%27tStarve\02.map\object</Filter>
     </ClInclude>
     <ClInclude Include="soundManager.h">
       <Filter>03.Managers</Filter>
@@ -130,11 +127,8 @@
     <ClInclude Include="loading.h">
       <Filter>04.MNG Header</Filter>
     </ClInclude>
-    <ClInclude Include="LoadingMainScene.h">
-      <Filter>00.Don%27tStarve\01.scenes\loading</Filter>
-    </ClInclude>
-    <ClInclude Include="LoadingMapScene.h">
-      <Filter>00.Don%27tStarve\01.scenes\loading</Filter>
+    <ClInclude Include="cameraManager.h">
+      <Filter>00.Don%27tStarve\02.map</Filter>
     </ClInclude>
     <ClInclude Include="gameScene.h">
       <Filter>00.Don%27tStarve\01.scenes\window</Filter>
@@ -142,8 +136,29 @@
     <ClInclude Include="menuScene.h">
       <Filter>00.Don%27tStarve\01.scenes\window</Filter>
     </ClInclude>
-    <ClInclude Include="cameraManager.h">
-      <Filter>03.Managers</Filter>
+    <ClInclude Include="CreatingWorldScene.h">
+      <Filter>00.Don%27tStarve\01.scenes\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadingMainScene.h">
+      <Filter>00.Don%27tStarve\01.scenes\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemInfo.h">
+      <Filter>00.Don%27tStarve\02.map\object</Filter>
+    </ClInclude>
+    <ClInclude Include="player_idle.h">
+      <Filter>00.Don%27tStarve\03.userInfo\characterAction</Filter>
+    </ClInclude>
+    <ClInclude Include="player_run.h">
+      <Filter>00.Don%27tStarve\03.userInfo\characterAction</Filter>
+    </ClInclude>
+    <ClInclude Include="UImanager.h">
+      <Filter>00.Don%27tStarve\03.userInfo\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Crafting.h">
+      <Filter>00.Don%27tStarve\03.userInfo\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Clock.h">
+      <Filter>00.Don%27tStarve\03.userInfo\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -193,19 +208,13 @@
       <Filter>00.Don%27tStarve\02.map</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp">
-      <Filter>00.Don%27tStarve\04.userInfo</Filter>
+      <Filter>00.Don%27tStarve\03.userInfo</Filter>
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
-      <Filter>00.Don%27tStarve\04.userInfo</Filter>
-    </ClCompile>
-    <ClCompile Include="UImanager.cpp">
-      <Filter>00.Don%27tStarve\04.userInfo</Filter>
+      <Filter>00.Don%27tStarve\03.userInfo</Filter>
     </ClCompile>
     <ClCompile Include="Objects.cpp">
-      <Filter>00.Don%27tStarve\03.object</Filter>
-    </ClCompile>
-    <ClCompile Include="crafting.cpp">
-      <Filter>00.Don%27tStarve\04.userInfo</Filter>
+      <Filter>00.Don%27tStarve\02.map\object</Filter>
     </ClCompile>
     <ClCompile Include="soundManager.cpp">
       <Filter>03.Managers</Filter>
@@ -213,11 +222,8 @@
     <ClCompile Include="loading.cpp">
       <Filter>04.MNG Header</Filter>
     </ClCompile>
-    <ClCompile Include="LoadingMainScene.cpp">
-      <Filter>00.Don%27tStarve\01.scenes\loading</Filter>
-    </ClCompile>
-    <ClCompile Include="LoadingMapScene.cpp">
-      <Filter>00.Don%27tStarve\01.scenes\loading</Filter>
+    <ClCompile Include="cameraManager.cpp">
+      <Filter>00.Don%27tStarve\02.map</Filter>
     </ClCompile>
     <ClCompile Include="gameScene.cpp">
       <Filter>00.Don%27tStarve\01.scenes\window</Filter>
@@ -225,8 +231,26 @@
     <ClCompile Include="menuScene.cpp">
       <Filter>00.Don%27tStarve\01.scenes\window</Filter>
     </ClCompile>
-    <ClCompile Include="cameraManager.cpp">
-      <Filter>03.Managers</Filter>
+    <ClCompile Include="CreatingWorldScene.cpp">
+      <Filter>00.Don%27tStarve\01.scenes\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingMainScene.cpp">
+      <Filter>00.Don%27tStarve\01.scenes\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="player_idle.cpp">
+      <Filter>00.Don%27tStarve\03.userInfo\characterAction</Filter>
+    </ClCompile>
+    <ClCompile Include="player_run.cpp">
+      <Filter>00.Don%27tStarve\03.userInfo\characterAction</Filter>
+    </ClCompile>
+    <ClCompile Include="UImanager.cpp">
+      <Filter>00.Don%27tStarve\03.userInfo\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Crafting.cpp">
+      <Filter>00.Don%27tStarve\03.userInfo\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Clock.cpp">
+      <Filter>00.Don%27tStarve\03.userInfo\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

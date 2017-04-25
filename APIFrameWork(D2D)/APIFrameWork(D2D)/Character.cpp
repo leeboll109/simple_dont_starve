@@ -54,8 +54,8 @@ HRESULT Character::init(void)
 	count = 0;
 	isWalkComp = false;
 
-	_position.x = WINSIZEX_NUM / 2;
-	_position.y = WINSIZEY_NUM / 2;
+	_position.x = MAPMAX_X / 2 - 500;
+	_position.y = MAPMAX_X / 2 - 500;
 	frameX = 0;
 
 	CAMERAMANAGER->setPositionMemotyRick(&_position);
@@ -209,14 +209,9 @@ void Character::update(void)
 		}
 	}
 }
-	
-
-
 
 void Character::render(void)
 {
-	IMAGEMANAGER->render(L"ground", Rt);
-	//CAMERAMANAGER->getAbsPosition(_position);
 	tstring tmp = character_action[_action] + character_order[_order];
 	IMAGEMANAGER->frameRender(tmp, Rt, WINSIZEX_NUM / 2 - 0.15 * (IMAGEMANAGER->findImage(tmp)->getWidth() / 10), WINSIZEY_NUM / 2 - 0.5 * (IMAGEMANAGER->findImage(tmp)->getHeight()), frameX, 0);
 }
